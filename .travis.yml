@@ -7,9 +7,9 @@ env:
   URL=https://github.com/gohugoio/hugo/releases/download
 
 before_install:
-  - add-apt-repository ppa:ubuntu-toolchain-r/test -y
-  - apt-get update
-  - apt-get install libstdc++6
+  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+  - sudo apt-get update
+  - sudo apt-get install libstdc++6
 
 script:
   - curl -L "${URL}/v${HUGO}/hugo_extended_${HUGO}_Linux-64bit.tar.gz" | tar xzvf -
