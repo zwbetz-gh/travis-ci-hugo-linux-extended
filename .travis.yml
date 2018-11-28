@@ -1,8 +1,10 @@
 dist: trusty
 sudo: false
-language: nodejs
-nodejs:
-  - "node"
+language: node_js
+
+env:
+  HUGO=0.50
+  URL=https://github.com/gohugoio/hugo/releases/download
 
 addons:
   apt:
@@ -10,9 +12,8 @@ addons:
       - libstdc++6
       - gcc-4.8
 
-env:
-  HUGO=0.50
-  URL=https://github.com/gohugoio/hugo/releases/download
+before_install:
+  - export CXX="g++-4.8" CC="gcc-4.8"
 
 script:
   - curl -L "${URL}/v${HUGO}/hugo_extended_${HUGO}_Linux-64bit.tar.gz" | gunzip | tar xvf -
