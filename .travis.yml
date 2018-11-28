@@ -7,9 +7,9 @@ env:
   URL=https://github.com/gohugoio/hugo/releases/download
 
 before_install:
-  - wget https://repo.continuum.io/miniconda/Miniconda3-3.7.0-Linux-x86_64.sh -O ~/miniconda.sh
-  - bash ~/miniconda.sh -b -p $HOME/miniconda
-  - export PATH="$HOME/miniconda/bin:$PATH"
+  - wget https://repo.continuum.io/archive/Anaconda2-5.3.1-Linux-x86.sh -O ~/anaconda.sh
+  - bash ~/anaconda.sh -b -p $HOME/anaconda
+  - export PATH="$HOME/anaconda/bin:$PATH"
   - conda install -y libgcc
 
 script:
