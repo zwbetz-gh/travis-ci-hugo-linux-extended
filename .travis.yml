@@ -1,15 +1,10 @@
 dist: trusty
-language: nodejs
-nodejs:
-  - "node"
 
 env:
   HUGO=0.50
   URL=https://github.com/gohugoio/hugo/releases/download
 
 before_install:
-  - npm install -g n
-  - pip install urllib3[secure] awscli --upgrade --user
   - sudo apt-get install libstdc++6
 
 script:
