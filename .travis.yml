@@ -10,13 +10,19 @@ env:
   - HUGO_BUILD_TAGS="extended"
 
 install:
+  # Install Hugo
   - mkdir $HOME/src
   - cd $HOME/src
   - git clone https://github.com/gohugoio/hugo.git
   - cd hugo
   - go get github.com/magefile/mage
-
-script:
   - go mod download
   - mage -v hugo
   - ./hugo version
+  # Install Node.js
+  - curl -sL https://deb.nodesource.com/setup_10.14 | sudo -E bash -
+  - sudo apt-get install -y nodejs
+  - node --version
+  
+script
+  - echo "Deploy your site here"
