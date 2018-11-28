@@ -10,13 +10,11 @@ env:
   - HUGO_BUILD_TAGS="extended"
 
 install:
-  # Install Hugo
   - mkdir $HOME/src
   - cd $HOME/src
   - git clone https://github.com/gohugoio/hugo.git
   - cd hugo
-  # Checkout Hugo release v0.52
-  - git checkout 9433cf5
+  - git checkout 9433cf5 # checkout release v0.52
   - go get github.com/magefile/mage
   - go mod download
   - mage -v hugo
@@ -25,4 +23,4 @@ install:
   
 script:
   - $HOME/src/hugo/hugo version
-  - echo "Deploy your site here"
+  - echo "Write code to deploy your site here"
