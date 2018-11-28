@@ -9,8 +9,8 @@ env:
   URL=https://github.com/gohugoio/hugo/releases/download
 
 before_install:
-  - sudo apt update -y 
-  - sudo apt install gcc -y
+  - sudo apt-get update -y
+  - sudo apt-get install build-essential -y
   - gcc -v
 
 script:
