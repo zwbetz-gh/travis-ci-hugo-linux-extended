@@ -16,6 +16,6 @@ before_install:
   - export CXX="g++-4.8" CC="gcc-4.8"
 
 script:
-  - curl -L "${URL}/v${HUGO}/hugo_extended_${HUGO}_Linux-64bit.tar.gz" | gunzip | tar xvf -
+  - curl -L "${URL}/v${HUGO}/hugo_extended_${HUGO}_Linux-64bit.tar.gz" | tar xzvf -
   - ls -alFh
   - ./hugo version
