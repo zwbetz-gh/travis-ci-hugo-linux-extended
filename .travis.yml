@@ -3,7 +3,7 @@ sudo: false
 
 language: go
 go:
-  - "1.11.2"
+  - "1.11"
 
 env:
   global:
@@ -15,14 +15,14 @@ install:
   - cd $HOME/src
   - git clone https://github.com/gohugoio/hugo.git
   - cd hugo
+  # Checkout Hugo release v0.52
+  - git checkout 9433cf5
   - go get github.com/magefile/mage
   - go mod download
   - mage -v hugo
   - ./hugo version
-  # Install Node.js
-  - curl -sL https://deb.nodesource.com/setup_10.14 | sudo -E bash -
-  - sudo apt-get install -y nodejs
-  - node --version
+  - pwd
   
 script:
+  - $HOME/src/hugo/hugo version
   - echo "Deploy your site here"
