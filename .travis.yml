@@ -10,8 +10,9 @@ env:
 
 before_install:
   - sudo apt-get update -y
-  - sudo apt-get install build-essential -y
-  - gcc -v
+  - ldd --version
+  - apt-get install libc6 -y
+  - ldd --version
 
 script:
   - curl -L "${URL}/v${HUGO}/hugo_extended_${HUGO}_Linux-64bit.tar.gz" | tar xzvf -
