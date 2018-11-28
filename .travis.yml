@@ -1,19 +1,22 @@
 dist: trusty
 sudo: false
 
-matrix:
-  include:
-    - language: node_js
-      node_js:
-      - "10.14.0"
-    - language: go
-      go:
-      - master
+language: go
+go:
+  - "1.11.2"
 
 env:
-  HUGO=0.50
-  URL=https://github.com/gohugoio/hugo/releases/download
+  global:
+  - HUGO_BUILD_TAGS="extended"
 
 install:
-  - go get github.com/gohugoio/hugo
-  - hugo version
+  - mkdir $HOME/src
+  - cd $HOME/src
+  - git clone https://github.com/gohugoio/hugo.git
+  - cd hugo
+  - go get github.com/magefile/mage
+
+script:
+  - go mod download
+  - mage -v hugo
+  - ./hugo version
