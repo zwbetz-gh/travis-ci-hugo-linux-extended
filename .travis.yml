@@ -1,6 +1,9 @@
 dist: trusty
 sudo: false
 language: node_js
+node_js:
+  - "iojs"
+  - "7"
 
 env:
   HUGO=0.50
@@ -14,7 +17,7 @@ before_install:
   - sudo apt-get install gcc-8 g++-8 -y 
   - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 60 --slave /usr/bin/g++ g++ /usr/bin/g++-8 
   - sudo update-alternatives --config gcc 
-  - select gcc-8
+  - gcc -v
 
 script:
   - curl -L "${URL}/v${HUGO}/hugo_extended_${HUGO}_Linux-64bit.tar.gz" | tar xzvf -
