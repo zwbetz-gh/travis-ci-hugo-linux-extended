@@ -1,4 +1,14 @@
-# dist: trusty
+dist: trusty
+sudo: false
+language: nodejs
+nodejs:
+  - "node"
+
+addons:
+  apt:
+    packages:
+      - libstdc++6
+      - gcc-4.8
 
 env:
   HUGO=0.50
@@ -7,5 +17,4 @@ env:
 script:
   - curl -L "${URL}/v${HUGO}/hugo_extended_${HUGO}_Linux-64bit.tar.gz" | gunzip | tar xvf -
   - ls -alFh
-  - chmod +x hugo
   - ./hugo version
